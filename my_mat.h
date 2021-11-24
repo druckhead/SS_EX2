@@ -38,19 +38,17 @@
 
 /**
  * @brief Receive from input the values of the Adjacency Matrix
+ * @param arr 2D array representing an adjacency matrix
  */
 void init_mat(int arr[VERT][VERT]);
 
 /**
  * @brief 
- * 
- * @param i 
- * @param j 
- * @return true 
- * @return false 
+ * Create a copy of src matrix into dest matrix
+ * @param src 2D array representing an adjacency matrix
+ * @param dest 2D array representing an adjacency matrix 
  */
-
-void copy_mat(int mat[VERT][VERT], int tmp[VERT][VERT]);
+void copy_mat(const int src[VERT][VERT], int dest[VERT][VERT]);
 
 
 /**
@@ -59,10 +57,9 @@ void copy_mat(int mat[VERT][VERT], int tmp[VERT][VERT]);
  *        Uses a modified Floyd-Warshall algorithm to determine if a path exists.
  *        If a path exists, prints "True"
  *        Otherwise, if a path does not exist, prints "False".
- * @param i matrix row
- * @param j matrix column
+ * @param mat 2D array representing an adjacency matrix
  */
-void path_exists(int arr[VERT][VERT]);
+void path_exists(const int mat[VERT][VERT]);
 
 
 
@@ -70,10 +67,8 @@ void path_exists(int arr[VERT][VERT]);
  * @brief This function receives two integers i, j which represent the cell (i,j) in an Adjacency Matrix
  *        of an undirected-weighted graph.
  *        It Uses the Floyd-Warshall Algorithm to find the shortest path between i to j.
- *        If a path exists, prints the weight of the shortest one,
+ *        If a path exists, prints the weight of the shortest one from i to j,
  *        else if a path doesn't exist, prints -1.
- * @param i matrix row
- * @param j matrix column
- * 
+ * @param mat 2D array representing an adjacency matrix
  */
-void shortest_path(int adj_mat[VERT][VERT]);
+void shortest_path(int mat[VERT][VERT]);
