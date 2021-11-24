@@ -27,7 +27,6 @@ int main(int argc, char const *argv[])
         }
         else if(ch == 'D'){
             flag = 0;
-            printf("\n");
         }
     }
     return 0;
