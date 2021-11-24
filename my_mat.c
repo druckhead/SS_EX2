@@ -9,12 +9,14 @@
  * 
  */
 #include <stdio.h>
-#include <stdbool.h>
 #include "my_mat.h"
 
 #define min_val(i,j) ( shrt_dist[i][j] = ( ( shrt_dist[i][j] < shrt_dist[i][k] + shrt_dist[k][j] ) ? shrt_dist[i][j] : shrt_dist[i][k] + shrt_dist[k][j] ) )
 
-//for testing
+/*
+************************
+* for testing purposes *
+************************
 void printMat(int arr[VERT][VERT]) {
     for (int i = 0; i < VERT; i++) {
         for (int j = 0; j < VERT; j++) {
@@ -23,6 +25,7 @@ void printMat(int arr[VERT][VERT]) {
         printf("\n");
     }
 }
+*/
 
 void init_mat(int adj_mat[VERT][VERT]) {
     for (int i = 0; i < VERT; i++) {
@@ -32,8 +35,7 @@ void init_mat(int adj_mat[VERT][VERT]) {
     }   
 }
 
-//todo fix
-void path_exists(int adj_mat[VERT][VERT]) {
+void path_exists(const int adj_mat[VERT][VERT]) {
     int i=0,j=0;
     fscanf(stdin, "%d %d", &i, &j);
     int shrt_dist[VERT][VERT];
@@ -46,7 +48,6 @@ void path_exists(int adj_mat[VERT][VERT]) {
             }
         }
     }
-    // printMat(shrt_dist);
     // if shortest path exists, obviously path exists
     if (shrt_dist[i][j] == INFINITY || !shrt_dist[i][j]) {
         // no path exists;
@@ -58,8 +59,7 @@ void path_exists(int adj_mat[VERT][VERT]) {
     }
 }
 
-// copy the matrix into a new one
-void copy_mat(int adj_mat[VERT][VERT], int tmp[VERT][VERT]) {
+void copy_mat(const int adj_mat[VERT][VERT], int tmp[VERT][VERT]) {
     for(int i = 0; i<VERT; i++) {
         for(int j = 0; j<VERT;j++) {
             if (adj_mat[i][j]) {
@@ -90,7 +90,6 @@ void shortest_path(int adj_mat[][VERT]) {
             }
         }
     }
-    // printMat(shrt_dist);
     if (shrt_dist[i][j] == INFINITY || !shrt_dist[i][j]) {
         // no path exists;
         printf("%d\n", -1);
